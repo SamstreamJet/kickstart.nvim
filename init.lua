@@ -131,12 +131,23 @@ require('lazy').setup({
     },
   },
 
+  -- THEME
+--  {
+--    -- Theme inspired by Atom
+--    'navarasu/onedark.nvim',
+--    priority = 1000,
+--    config = function()
+--      vim.cmd.colorscheme 'onedark'
+--    end,
+--  },
+
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
+    'rebelot/kanagawa.nvim',
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      --    vim.cmd.colorscheme 'kanagawa'
+      vim.cmd("colorscheme kanagawa-wave")
+      --    vim.cmd("colorscheme kanagawa-dragon")
+      --    vim.cmd("colorscheme kanagawa-lotus")
     end,
   },
 
@@ -201,7 +212,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -435,12 +446,12 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
+  clangd = {},
+  gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {
@@ -525,3 +536,7 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
+--My custom changes
+require('custom.plugins.init')
